@@ -19,23 +19,23 @@
  *
  * @author Joseph Taiwo Orilogbon <joseph at orilogbon.me>
  */
-class PebbleBitmap  {
+class PebbleBitmap {
 
     protected $name;
     protected $x, $y, $w, $h;
     protected $path;
     protected $version = 1;
     protected $is32Bit = false;
-    public static $WHITE_COLOR_MAP = [
+    public static $WHITE_COLOR_MAP = array(
         'white' => 1,
         'black' => 0,
         'transparent' => 1, //this is a deviation from the normal pebble bitmap gen
-    ];
-    public static $BLACK_COLOR_MAP = [
+    );
+    public static $BLACK_COLOR_MAP = array(
         'white' => 0,
         'black' => 1,
         'transparent' => 0,
-    ];
+    );
 
     const WHITE_MAP = 1;
     const BLACK_MAP = 2;
@@ -152,7 +152,7 @@ class PebbleBitmap  {
      * @return type
      */
     public function getMonochromeValueForPixel($pixel) {
-       
+
         $color = $this->int2rgba($pixel);
         if ($this->is32Bit && $color['a'] < 127) {//only 32 bit images have alpha.
             return $this->colorMap['transparent'];
